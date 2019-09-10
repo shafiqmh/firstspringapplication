@@ -59,6 +59,8 @@ public class NotesControllerTest {
     public void testDeleteOneNote(){
         Note note = new Note();
         note.setName("blah");
+
+
         repository.findOne(1L);
         notesController.deleteNote(1L);
 

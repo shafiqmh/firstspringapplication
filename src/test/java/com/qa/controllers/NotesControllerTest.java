@@ -49,12 +49,20 @@ public class NotesControllerTest {
 
     @Test
     public void testGetOneNote(){
-        //List<Note> notesList = new ArrayList<>();
         Note note = new Note();
-        //note.setDescription("blurgh");
         note.setName("blah");
-        //notesList.add(note);
         when(repository.findOne(1L)).thenReturn(note);
         notesController.getNote(1L);
+    }
+
+    @Test
+    public void testDeleteOneNote(){
+        Note note = new Note();
+        note.setName("blah");
+        repository.findOne(1L);
+        notesController.deleteNote(1L);
+
+        when(!repository.exists(1L)).thenReturn(true);
+
     }
 }
